@@ -1,6 +1,5 @@
-import { VFC } from 'react'
 import Link from 'next/link'
-import { GetStaticProps, GetStaticPaths } from 'next'
+import { GetStaticProps, GetStaticPaths, NextPage } from 'next'
 import { ChevronDoubleLeftIcon } from '@heroicons/react/solid'
 import { initializeApollo } from '../../lib/apolloClient'
 import { GET_USERIDS, GET_USERBY_ID } from '../../queries/queries'
@@ -17,7 +16,7 @@ interface Props {
   } & Pick<Users, 'id' | 'name' | 'created_at'>
 }
 
-const UserDetail: VFC<Props> = ({ user }) => {
+const UserDetail: NextPage<Props> = ({ user }) => {
   if (!user) {
     return <Layout title="loading">Loading...</Layout>
   }
